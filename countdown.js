@@ -1,44 +1,38 @@
-// Terminal Leave begins at midnight Central Time on 17 Sep 2028.
-// September is daylight time in America/Chicago, so midnight CT = 05:00 UTC.
-const target = new Date('2028-09-17T05:00:00Z');
+// Terminal Leave Countdown
+// Target: 17 September 2028 at midnight, Central Time.
 
-const parts = {
-  days: document.getElementById('days'),
-  hours: document.getElementById('hours'),
-  minutes: document.getElementById('minutes'),
-  seconds: document.getElementById('seconds'),
-  card: document.querySelector('.countdown-card')
-};
+const target = new Date("2028-09-17T00:00:00-05:00");
 
-function pad(number) {
-  return String(number).padStart(2, '0');
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
+const card = document.querySelector(".countdown");
+
+function pad(value) {
+  return String(value).padStart(2, "0");
 }
 
 function updateCountdown() {
   const now = new Date();
-  const remaining = target - now;
+  const difference = target - now;
 
-  if (remaining <= 0) {
-    parts.card.innerHTML = `
-      <p class="eyebrow">Terminal Leave</p>
-      <div class="arrived">Enjoy the next adventure.</div>
-      <p class="date-line">17 September 2028</p>
-    `;
-    clearInterval(timer);
+  if (difference <= 0) {
+    card.innerHTML = '<p class="label">Terminal Leave</p><div class="arrived">The next chapter starts now.</div>';
     return;
   }
 
-  const totalSeconds = Math.floor(remaining / 1000);
+  const totalSeconds = Math.floor(difference / 1000);
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
 
-  parts.days.textContent = days.toLocaleString();
-  parts.hours.textContent = pad(hours);
-  parts.minutes.textContent = pad(minutes);
-  parts.seconds.textContent = pad(seconds);
+  daysEl.textContent = days;
+  hoursEl.textContent = pad(hours);
+  minutesEl.textContent = pad(minutes);
+  secondsEl.textContent = pad(seconds);
 }
 
-const timer = setInterval(updateCountdown, 1000);
 updateCountdown();
+setInterval(updateCountdown, 1000);

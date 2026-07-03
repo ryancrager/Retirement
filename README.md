@@ -1,13 +1,22 @@
-# Terminal Leave Countdown
+# Retirement Countdown
 
-A tiny static website for ryanrager.com.
+A tiny static website for Ryan's terminal leave countdown.
 
-Target date: 17 September 2028 at 00:00 America/Chicago.
+## Files
 
-Files:
-- `index.html`
-- `style.css`
-- `countdown.js`
-- `assets/lakeside-background.webp`
+- `index.html` — page structure
+- `style.css` — layout and visual design
+- `countdown.js` — countdown logic
+- `assets/lakeside-background.webp` — optimized background image
 
-No external scripts, no frameworks, no trackers.
+## GitHub Pages setup
+
+Use:
+
+- Source: Deploy from a branch
+- Branch: main
+- Folder: / (root)
+
+## Target date
+
+Terminal Leave: 17 September 2028, midnight Central Time.
