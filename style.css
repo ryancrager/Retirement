@@ -88,7 +88,7 @@ body {
 
 @media (max-width: 720px) {
   .poster {
-    background-position: center top;
+    background-position: center 18%;
   }
 
   .countdown-card {
