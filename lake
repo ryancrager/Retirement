@@ -47,7 +47,7 @@
       min-height: 280px; /* Forces height so the clock can move downward */
       display: flex;
       flex-direction: column;
-      transform: translateY(-90px);
+      transform: translateY(-5px);
 }
     }
 
